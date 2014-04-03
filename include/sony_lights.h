@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2012-2013 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-#ifndef _BDROID_BUILDCFG_H
-#define _BDROID_BUILDCFG_H
-
-#define BTM_DEF_LOCAL_NAME   "Xperia T"
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
-
-#endif
+char const*const LCD_BACKLIGHT_FILE  = "/sys/class/leds/lcd-backlight_1/brightness";
+char const*const LCD_BACKLIGHT2_FILE = "/sys/class/leds/lcd-backlight_2/brightness";
+char const*const MAX_BRIGHTNESS_FILE = "/sys/class/leds/lcd-backlight_1/max_brightness";
+const int LCD_BRIGHTNESS_MIN         = 10;

@@ -1,5 +1,2 @@
-Device configuration for the Sky A830L - ef46l.
-===============================
-
-Copyright 2013 - The CyanogenMod Project
-
+android_device_pantech_ef46l
+========================

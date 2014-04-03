@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
+export DEVICE=${PWD##*/}
+export BOARDCONFIGVENDOR=true
 
-export VENDOR=motorola
-export DEVICE=xt897
+../common/extract-files.sh $@
 
-../msm8960-common/extract-files.sh $@
+../common/setup-makefiles.sh

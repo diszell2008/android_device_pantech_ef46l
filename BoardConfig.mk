@@ -1,38 +1,33 @@
-#
-# Copyright (C) 2013 The CyanogenMod Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#inherit from the common blue definitions
+include device/pantech/blue-common/BoardConfigCommon.mk
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
+TARGET_SPECIFIC_HEADER_PATH += device/pantech/ef46l/include
 
-# inherit from platform common
--include device/sky/msm8960-common/BoardConfigCommon.mk
+TARGET_KERNEL_CONFIG := cm_blue_mint_defconfig
+
+# Partition information
+BOARD_VOLD_MAX_PARTITIONS := 18
+
+# the following two sizes are generous guesses
+# since these partitions are not visible
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01400000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x01400000
+
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1056964608
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/pantech/ef46l/bluetooth
+
+TARGET_LS_USE_ALS_NODE := true
+
+# Recovery
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_USERIMAGES_USE_EXT4 := true
+
+TARGET_OTA_ASSERT_DEVICE := IM-A830L,ef46l
+
+BOARD_HARDWARE_CLASS := device/pantech/ef46l/cmhw
 
 # inherit from the proprietary version
--include vendor/motorola/xt897/BoardConfigVendor.mk
-
-LOCAL_PATH := device/sky/ef46l
-
-#bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
-
-#TWRP
-DEVICE_RESOLUTION := 540x960
-
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 4294967296
+-include vendor/pantech/ef46l/BoardConfigVendor.mk
