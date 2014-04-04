@@ -32,10 +32,10 @@ PRODUCT_PACKAGES := \
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Common Sony Resources
+# Common Pantech Resources
 $(call inherit-product, device/pantech/common/resources.mk)
 
-# Inherit from mint device
+# Inherit from ef46l device
 $(call inherit-product, device/pantech/ef46l/ef46l.mk)
 
 # Set those variables here to overwrite the inherited values.
